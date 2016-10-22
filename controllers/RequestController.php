@@ -120,7 +120,7 @@ class RequestController extends Controller
 
 
 
-        return $this->render('create', [
+        return $this->render('send', [
                     'model' => $model,
                     'supply' => $supply
         ]);
@@ -133,17 +133,12 @@ class RequestController extends Controller
     public function actionRespond($id)
     {
         $model = $this->findModel($id);
-        $supply = $model->supply;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
             return $this->redirect(['/host/find']);
         }
-
-        var_dump($model->errors);
-
-        return $this->render('update', [
+     //   var_dump($model->errors);
+        return $this->render('respond', [
                     'model' => $model,
-                    'supply' => $supply
         ]);
     }
 

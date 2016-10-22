@@ -17,8 +17,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
     <?=
     $this->render('_request', [
         'data' => $model,
-        'asForm'=>true,
-        //'supply' => $supply,
+        'asForm' => true,
     ])
     ?>
 

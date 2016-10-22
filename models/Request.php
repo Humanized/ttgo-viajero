@@ -166,13 +166,19 @@ class Request extends \yii\db\ActiveRecord
         if (parent::load($data, $formName)) {
 
             foreach ($data['AccommodationRequest'] as $key => $value) {
-
                 //Get accommodation supplied for key
-                $accommodation = Supply::findAccommodation($this->supplyId, $key);
+
+                $supplyId = (isset($this->id) ? $this->supply->id : $this->supplyId);
+                $accommodation = Supply::findAccommodation($supplyId, $key);
                 if (isset($accommodation)) {
                     $model = $this->accommodation[$key];
-                    $model->accommodation_id = $accommodation->id;
-                    $model->request_count = $value["request_count"];
+                    if (!isset($this->id)) {
+                        $model->accommodation_id = $accommodation->id;
+                        $model->request_count = $value["request_count"];
+                    }
+                    if (isset($this->id)) {
+                        $model->is_accepted = $value["is_accepted"];
+                    }
                 }
             }
             return true;
@@ -193,12 +199,11 @@ class Request extends \yii\db\ActiveRecord
 
     public function afterSave($insert, $changedAttributes)
     {
-        if (!$insert) {
-            $this->respond_date = date('Y-m-d H:i:s');
-        }
         foreach ($this->accommodation as $accommodation) {
             $accommodation->request_id = $this->id;
-            $accommodation->save();
+            if (!$accommodation->save()) {
+                var_dump($accommodation->errors);
+            }
         }
 
         return parent::afterSave($insert, $changedAttributes);

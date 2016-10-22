@@ -18,7 +18,7 @@ $fnRowOptions = function($model) {
 
 $fnAfterRow = function($model) {
 
-    return '<tr><td colspan=100>' . $this->render('_request', ['data' => $model]) . '</td></tr>';
+    return '<tr><td colspan=100>' . $this->render('_request', ['data' => $model, 'asForm' => false]) . '</td></tr>';
 };
 
 $this->title = ucwords(Yii::t('app', ($mode . ($mode == 'out' ? 'going' : 'coming') . ' Requests')));
