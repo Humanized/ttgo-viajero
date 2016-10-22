@@ -14,9 +14,17 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'urlManager' => [
+            'class' => 'humanized\translation\components\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableDefaultLanguageUrlCode' => true,
+        ],
         'user' => [
             'identityClass' => 'app\models\User',
+            'loginUrl' => ['/account'],
             'enableAutoLogin' => true,
+            'enableSession' => true,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -26,7 +34,7 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -38,14 +46,14 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+    /*
+      'urlManager' => [
+      'enablePrettyUrl' => true,
+      'showScriptName' => false,
+      'rules' => [
+      ],
+      ],
+     */
     ],
     'params' => $params,
 ];

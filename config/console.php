@@ -8,6 +8,14 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
+    'modules' => [
+        'translation' => [
+            'class' => 'humanized\translation\Module',
+        ],
+        'maintenance' => [
+            'class' => 'humanized\maintenance\Module',
+        ],
+    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -23,13 +31,13 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
-        ],
-    ],
-    */
+        /*
+          'controllerMap' => [
+          'fixture' => [ // Fixture generation command line.
+          'class' => 'yii\faker\FixtureController',
+          ],
+          ],
+         */
 ];
 
 if (YII_ENV_DEV) {
