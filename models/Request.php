@@ -39,9 +39,27 @@ class Request extends \yii\db\ActiveRecord
             [['supplyId', 'request_date', 'request_message'], 'required'],
             [['request_date', 'response_date'], 'safe'],
             ['is_new', 'default', 'value' => 1],
+            ['accommodation', 'checkAccommodation'],
             [['request_message', 'response_message'], 'string'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
+    }
+
+    public function checkAccommodation()
+    {
+        $hasAccommodation = false;
+        foreach ($this->accommodation as $model) {
+            if (!(is_numeric($model->accommodation_count) && $model->accommodation_count >= 0)) {
+                $this->addError('accommodation', 'A positive, numeric value is required');
+                break;
+            }
+            if (!$hasAccommodation && $model->request_count > 0) {
+                $hasAccommodation = true;
+            }
+        }
+        if (!$hasAccommodation) {
+            $this->addError('accommodation', 'No Accommodations specified');
+        }
     }
 
     /**

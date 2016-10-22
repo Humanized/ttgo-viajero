@@ -13,50 +13,72 @@ use kartik\switchinput\SwitchInput;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <h4>Description</h4>
 
-    <h3>General Description</h3>
-    <div class="col-xs-12 col-md-2">
-        <div class="row">
-            <div class="col-xs-4 col-md-12">
-                <?= $form->field($model, 'has_wifi')->widget(SwitchInput::classname(), []); ?>
-            </div>
-            <div class="col-xs-4 col-md-12">
-                <?= $form->field($model, 'has_kitchen')->widget(SwitchInput::classname(), []); ?>
-            </div>
-            <div class="col-xs-4 col-md-12">
-                <?= $form->field($model, 'has_shower')->widget(SwitchInput::classname(), []); ?>
+    <div class="row">
+
+        <div class="col-xs-12 col-md-2">
+            <div class="row">
+                <div class="col-xs-4 col-md-12">
+                    <?=
+                    $form->field($model, 'has_wifi')->widget(SwitchInput::classname(), [ 'pluginOptions' => [
+                            //    'labelText' => '<i class="glyphicon glyphicon-stop"></i>',
+                            'onText' => '<i class="glyphicon glyphicon-ok"></i>',
+                            'offText' => '<i class="glyphicon glyphicon-remove"></i>'
+                    ]]);
+                    ?>
+                </div>
+                <div class="col-xs-4 col-md-12">
+                    <?=
+                    $form->field($model, 'has_kitchen')->widget(SwitchInput::classname(), [ 'pluginOptions' => [
+                            //    'labelText' => '<i class="glyphicon glyphicon-stop"></i>',
+                            'onText' => '<i class="glyphicon glyphicon-ok"></i>',
+                            'offText' => '<i class="glyphicon glyphicon-remove"></i>'
+                    ]]);
+                    ?>
+                </div>
+                <div class="col-xs-4 col-md-12">
+                    <?=
+                    $form->field($model, 'has_shower')->widget(SwitchInput::classname(), [ 'pluginOptions' => [
+                            //    'labelText' => '<i class="glyphicon glyphicon-stop"></i>',
+                            'onText' => '<i class="glyphicon glyphicon-ok"></i>',
+                            'offText' => '<i class="glyphicon glyphicon-remove"></i>'
+                    ]]);
+                    ?>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-md-5">
-        <?= $form->field($model, 'description_public')->textarea(['rows' => 8]) ?>
+        <div class="col-xs-12 col-md-5">
+            <?= $form->field($model, 'description_public')->textarea(['rows' => 8]) ?>
 
-    </div>
-    <div class="col-xs-12 col-md-5">
-        <?= $form->field($model, 'description_private')->textarea(['rows' => 8]) ?>
-
-    </div>
-</div>
-<h3>Available Accommodation</h3>
-<div class="row">
-    <?php
-    foreach ($model->accommodation as $date => $value) {
-        ?>
-
-        <div class="col-xs-4 col-md-1">
-            <b><?= date("D", strtotime($date)); ?></br><?= date("d-m-Y", strtotime($date)); ?> </b><br>
-            <?= $form->field($value, "[$date]accommodation_count")->label(false) ?>
         </div>
+        <div class="col-xs-12 col-md-5">
+            <?= $form->field($model, 'description_private')->textarea(['rows' => 8]) ?>
+
+        </div>
+    </div>
+    <h3>Accommodation Provided</h3>
+    <div class="row">
 
         <?php
-    }
-    ?>
+        foreach ($model->accommodation as $date => $value) {
+            ?>
+
+            <div class="col-xs-4 col-md-1">
+                <b><?= date("D", strtotime($date)); ?></br><?= date("d-m-Y", strtotime($date)); ?> </b><br>
+                <?= $form->field($value, "[$date]accommodation_count")->label(false) ?>
+            </div>
+
+            <?php
+        }
+        ?>
+    </div>
+
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
+
 </div>
 
-<div class="form-group">
-    <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-</div>
-
-<?php ActiveForm::end(); ?>
-
-</div>

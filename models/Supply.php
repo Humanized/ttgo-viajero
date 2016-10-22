@@ -48,6 +48,7 @@ class Supply extends \yii\db\ActiveRecord
         return [
             [['user_id', 'has_wifi', 'has_kitchen', 'has_shower'], 'integer'],
             [['description_public', 'description_private'], 'string'],
+            [['description_public'], 'required'],
             ['accommodation', 'checkAccommodation'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
