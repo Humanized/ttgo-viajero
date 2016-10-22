@@ -90,7 +90,16 @@ return [
 - Check and edit the other files in the `config/` directory to customize your application as required.
 - Refer to the README in the `tests` directory for information specific to basic application tests.
 
-
+### Migrations
+~~~
+php yii migrate/up --migrationPath=@vendor/humanized/yii2-translation/migrations
+php yii translation/language/enable en
+php yii translation/language/enable fr
+php yii translation/language/enable nl
+php yii translation/language/set-default en
+php yii migrate/up --migrationPath=@vendor/humanized/yii2-advanced-application-template-user/migrations
+php yii migrate/up
+~~~
 
 TESTING
 -------
