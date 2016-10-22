@@ -4,6 +4,7 @@ body {
     background-color:#29292A ;
     color:#FFF;
     font: 13px/20px 'PTSansRegular', Arial, Helvetica, sans-serif;
+    overflow-y: scroll;
 }
 
 .wrap {
@@ -102,9 +103,9 @@ h2 span{
 }
 
 .glyphicons-ok{
- color:green;   
+    color:green;   
 }
 
 .glyphicons-remove{
- color:red;   
+    color:red;   
 }
