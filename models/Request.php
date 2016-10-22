@@ -48,8 +48,8 @@ class Request extends \yii\db\ActiveRecord
     public function checkAccommodation()
     {
         $hasAccommodation = false;
-        foreach ($this->accommodation as $model) {
-            if (!(is_numeric($model->accommodation_count) && $model->accommodation_count >= 0)) {
+        foreach ($this->accommodation as $date => $model) {
+            if (!(is_numeric($model->request_count) && $model->request_count >= 0)) {
                 $this->addError('accommodation', 'A positive, numeric value is required');
                 break;
             }
@@ -58,7 +58,7 @@ class Request extends \yii\db\ActiveRecord
             }
         }
         if (!$hasAccommodation) {
-            $this->addError('accommodation', 'No Accommodations specified');
+            $this->addError('accommodation', 'No accommodation requested');
         }
     }
 
