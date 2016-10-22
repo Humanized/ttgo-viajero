@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\SupplySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Find Hosting') . '- TTIP GAME OVER';
+$this->title = Yii::t('app', 'Find Hosting');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="supply-index">

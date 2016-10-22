@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Supply */
 
-$this->title = Yii::t('app', 'Update My Offer') . ' - TTIP GAME OVER';
+$this->title = Yii::t('app', 'Update My Offer');
 ?>
 <div class="supply-update">
 
