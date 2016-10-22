@@ -21,7 +21,8 @@
         "humanized/yii2-translation": "*",
         "humanized/yii2-maintenance": "*",
         "humanized/yii2-advanced-application-template-user": "*",
-        "humanized/yii2-user-management": "*"
+        "humanized/yii2-user-management": "*",
+        "kartik-v/yii2-widget-switchinput": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

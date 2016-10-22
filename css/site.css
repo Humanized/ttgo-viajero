@@ -1,6 +1,9 @@
 html,
 body {
     height: 100%;
+    background-color:#29292A ;
+    color:#FFF;
+    font: 13px/20px 'PTSansRegular', Arial, Helvetica, sans-serif;
 }
 
 .wrap {
@@ -90,26 +93,18 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
-/* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
-    padding: 15px;
-    border: none;
+
+h2 span{
+    color: #EEE;
+    font-size: 1em;
+    font-weight: bold;
+    display: block;
 }
 
-@media(max-width:767px) {
-    .nav li > form > button.logout {
-        display:block;
-        text-align: left;
-        width: 100%;
-        padding: 10px 15px;
-    }
+.glyphicons-ok{
+ color:green;   
 }
 
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
-    text-decoration: none;
-}
-
-.nav > li > form > button.logout:focus {
-    outline: none;
+.glyphicons-remove{
+ color:red;   
 }
