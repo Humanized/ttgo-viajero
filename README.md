@@ -1,16 +1,5 @@
-Yii 2 Basic Project Template
-============================
-
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
-
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
-
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
+TTIP GAME-OVER: Viajero Prototype
+=================================
 
 DIRECTORY STRUCTURE
 -------------------
@@ -32,7 +21,7 @@ DIRECTORY STRUCTURE
 REQUIREMENTS
 ------------
 
-The minimum requirement by this project template that your Web server supports PHP 5.4.0.
+The minimum requirement by this project template that your Web server supports PHP 5.4.0, with module php-intl installed.
 
 
 INSTALLATION
@@ -47,14 +36,14 @@ You can then install this project template using the following command:
 
 ~~~
 php composer.phar global require "fxp/composer-asset-plugin:^1.2.0"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
+php composer.phar create-project --prefer-dist --stability=dev humanized/ttgo-viajero
 ~~~
 
 Now you should be able to access the application through the following URL, assuming `basic` is the directory
 directly under the Web root.
 
 ~~~
-http://localhost/basic/web/
+http://localhost/ttgo-viajero
 ~~~
 
 
@@ -75,7 +64,7 @@ Set cookie validation key in `config/web.php` file to some random secret string:
 You can then access the application through the following URL:
 
 ~~~
-http://localhost/basic/web/
+http://localhost/ttgo_viajero/
 ~~~
 
 
@@ -101,7 +90,16 @@ return [
 - Check and edit the other files in the `config/` directory to customize your application as required.
 - Refer to the README in the `tests` directory for information specific to basic application tests.
 
-
+### Migrations
+~~~
+php yii migrate/up --migrationPath=@vendor/humanized/yii2-translation/migrations
+php yii translation/language/enable en
+php yii translation/language/enable fr
+php yii translation/language/enable nl
+php yii translation/language/set-default en
+php yii migrate/up --migrationPath=@vendor/humanized/yii2-advanced-application-template-user/migrations
+php yii migrate/up
+~~~
 
 TESTING
 -------
