@@ -6,7 +6,7 @@ use app\models\Supply;
 /* @var $this yii\web\View */
 /* @var $model app\models\Request */
 
-$this->title = Yii::t('app', 'Request Accomodation') . '- TTIP GAME OVER';
+$this->title = Yii::t('app', 'Request Accomodation');
 ?>
 <div class="request-create">
 

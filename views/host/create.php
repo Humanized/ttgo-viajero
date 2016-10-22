@@ -9,7 +9,7 @@ $this->title = Yii::t('app', 'Offer Hosting');
 ?>
 <div class="supply-create">
 
-    <h2><?= Html::encode(Yii::t('app', 'Offer Hosting')) ?></h2>
+    <h2><?= Html::encode($this->title) ?></h2>
 
     <?=
     $this->render('_form', [

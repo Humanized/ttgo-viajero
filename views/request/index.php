@@ -21,7 +21,7 @@ $fnAfterRow = function($model) {
     return '<tr><td colspan=100>' . $this->render('_request', ['data' => $model]) . '</td></tr>';
 };
 
-$this->title = ucwords(Yii::t('app', ($mode . ($mode == 'out' ? 'going' : 'coming') . ' Requests'))) . ' - TTIP GAME OVER';
+$this->title = ucwords(Yii::t('app', ($mode . ($mode == 'out' ? 'going' : 'coming') . ' Requests')));
 $this->params['breadcrumbs'][] = $this->title;
 
 

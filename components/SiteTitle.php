@@ -13,7 +13,7 @@ class SiteTitle extends \yii\base\Component
     public function init()
     {
         \Yii::$app->view->on(\yii\web\View::EVENT_AFTER_RENDER, function ($event) {
-            if (\yii::$app->view->title != \Yii::$app->name) {
+            if (!strpos(\yii::$app->view->title, \Yii::$app->name)) {
                 \yii::$app->view->title .= " - " . \Yii::$app->name;
             }
         });
