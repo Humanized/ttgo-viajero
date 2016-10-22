@@ -22,13 +22,15 @@ use kartik\switchinput\SwitchInput;
     <div class="row" style="height:35px;">
         <?php
         foreach ($model->accommodation as $date => $value) {
-            ?>
-            <div class="col-xs-4 col-md-1">
-                <b><?= date("D", strtotime($date)); ?></br><?= date("d-m-Y", strtotime($date)); ?> </b><br>
-                <?= $form->field($value, "[$date]" . "request_count")->label(false) ?>
-                <?= $supply->accommodation[$date]->accommodation_count ?>
-            </div>
-            <?php
+            if ($supply->accommodation[$date]->accommodation_count > 0) {
+                ?>
+                <div class="col-xs-4 col-md-1">
+                    <b><?= date("D", strtotime($date)); ?></br><?= date("d-m-Y", strtotime($date)); ?> </b><br>
+                    <?= $form->field($value, "[$date]" . "request_count")->label(false) ?>
+                    <?= $supply->accommodation[$date]->accommodation_count ?>
+                </div>
+                <?php
+            }
         }
         ?>
     </div>
