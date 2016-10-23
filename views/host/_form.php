@@ -49,12 +49,17 @@ use kartik\switchinput\SwitchInput;
             </div>
         </div>
         <div class="col-xs-12 col-md-5">
-            <?= $form->field($model, 'description_public')->textarea(['rows' => 8]) ?>
+            <?= $form->field($model, 'description_public')->textarea([
+                    'rows' => 8,
+                    'placeHolder' => Yii::t('app', 'host.description_public.placeholder')
+                ]) ?>
 
         </div>
         <div class="col-xs-12 col-md-5">
-            <?= $form->field($model, 'description_private')->textarea(['rows' => 8]) ?>
-
+            <?= $form->field($model, 'description_private')->textarea([
+                    'rows' => 8,
+                    'placeHolder' => Yii::t('app', 'host.description_private.placeholder')
+                ]) ?>
         </div>
     </div>
     <h3><?= Yii::t('app', 'Accommodation Provided'); ?></h3>
@@ -66,7 +71,9 @@ use kartik\switchinput\SwitchInput;
 
             <div class="col-xs-4 col-md-1">
                 <b><?= Yii::$app->formatter->asDate(strtotime($date), 'EEE<br> dd-MM-yy'); ?></b><br>
-                <?= $form->field($value, "[$date]accommodation_count")->label(false) ?>
+                <?= $form->field($value, "[$date]accommodation_count")->label([
+                        'title' => Yii::t('app', 'host.date.title')
+                    ]) ?>
             </div>
 
             <?php
