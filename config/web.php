@@ -58,6 +58,15 @@ $config = [
                         'app/error' => 'error.php',
                     ],
                 ],
+                'mail*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+                        'mail' => 'mail.php',
+                        
+                    ],
+                ],
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),

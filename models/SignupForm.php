@@ -4,8 +4,7 @@ namespace app\models;
 
 use yii\base\Model;
 use humanized\usermanagement\common\models\UserCrud;
-use humanized\user\models\AccountConfirmation;
-
+use app\models\AccountConfirmation;
 /**
  * Signup form
  */
@@ -40,7 +39,8 @@ class SignupForm extends Model
         }
         $user = UserCrud::create(['email' => $this->email]);
         if (isset($user)) {
-            (new AccountConfirmation(['email' => $user->email]))->sendEmail();
+            $confirmation = new AccountConfirmation(['email' => $user->email]);
+            $confirmation->sendEmail();
         }
         return $user;
     }

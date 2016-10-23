@@ -20,11 +20,10 @@ class AccountController extends ParentController
         }
 
         $login = new LoginForm();
-        $signup = new \app\models\SignupForm;
+        $signup = new SignupForm();
         if ($login->load(Yii::$app->request->post()) && $login->login()) {
             return $this->goBack();
         }
-
         if ($signup->load(Yii::$app->request->post())) {
 
             if (NULL !== $signup->save()) {
