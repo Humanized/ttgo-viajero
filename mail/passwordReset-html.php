@@ -7,12 +7,10 @@ use yii\helpers\Html;
 /* @var $user common\models\User */
 //TODO: Remove hardcode
 $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['/user/default/reset-password', 'token' => $user->password_reset_token]);
-$resetLink= str_replace('api', 'gui', $resetLink);
 ?>
 <div class="password-reset">
-    <p>Dear Pulsar Client</p>
-
-    <p>Follow the link below to <?= $user->status != 0 ? 'reset your ' : '' ?>set your password:</p>
-
+    <p><?= Yii::t('mail', 'salutation') ?>,</p>
+    <p><?= Yii::t('mail', 'reset') ?>:</p>
     <p><?= Html::a(Html::encode($resetLink), $resetLink) ?></p>
+    <p><?= Yii::t('mail', 'signature') ?></p>
 </div>
