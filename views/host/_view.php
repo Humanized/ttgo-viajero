@@ -14,7 +14,7 @@ use app\models\Supply;
     foreach ($model->accommodation as $date => $value) {
         ?>
         <div class="col-xs-4 col-md-1"style="border-right:2px solid lightslategray;">
-            <b><?= date("D", strtotime($date)); ?></br><?= date("d M", strtotime($date)); ?> </b><br>
+            <b><?= Yii::$app->formatter->asDate(strtotime($date), 'EEE<br> dd-MM-yy'); ?></b><br>
             <?= $value->accommodation_count ?>
         </div>
         <?php
@@ -25,7 +25,7 @@ use app\models\Supply;
 <div class="row"  style="background:whitesmoke;border:2px solid lightslategray; border-bottom:0px;">
 
     <div class="col-md-2" style="font-weight: bolder;padding:5px; color:black">
-        <h5>Provisions</h5>
+        <h5><?= Yii::t('app', 'Provisions'); ?></h5>
         <?php
         $none = true;
         ?>
@@ -37,7 +37,7 @@ use app\models\Supply;
 
 
     <div class="col-md-offset-1 col-md-9" style="padding-top:5px;" >
-        <h5 style="color:black;">Description</h5>
+        <h5 style="color:black;"><?= Yii::t('app', 'Description'); ?></h5>
         <p style="color:lightslategray;border: lightblue solid 1px;padding:10px;"><?= $model->description_public; ?></p>
     </div>
 </div>

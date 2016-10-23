@@ -6,11 +6,11 @@ use app\models\Supply;
 /* @var $this yii\web\View */
 /* @var $model app\models\Request */
 
-$this->title = Yii::t('app', 'Request Accomodation');
+$this->title = Yii::t('app', 'Request Accommodation');
 ?>
 <div class="request-create">
 
-    <h2><?= Html::encode(Yii::t('app', 'Request Accomodation')) ?></h2>
+    <h2><?= Html::encode(Yii::t('app', 'Request Accommodation')) ?></h2>
    
     <p>
         <?=

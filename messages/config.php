@@ -14,10 +14,11 @@ return [
     'interactive' => true,
     'help' => null,
     'sourcePath' => '.',
-    'messagePath' => 'locales',
+    'messagePath' => 'messages',
     'languages' => [
         'nl',
         'fr',
+        'en',
     ],
     'translator' => 'Yii::t',
     'sort' => false,

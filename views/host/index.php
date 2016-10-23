@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="supply-index">
 
-    <h1><?= Html::encode('Find Hosting') ?></h1>
+    <h1><?= Html::encode(Yii::t('app', 'Find Hosting')) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
 
