@@ -12,6 +12,7 @@ use Yii;
  */
 class UserLanguage extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -43,4 +44,10 @@ class UserLanguage extends \yii\db\ActiveRecord
             'language' => Yii::t('app', 'Language'),
         ];
     }
+
+    public static function sync($userId, $languages)
+    {
+        
+    }
+
 }

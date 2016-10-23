@@ -17,14 +17,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="row"  style="border:1px solid #fff">
     <div class="col-md-6" style="border-right:1px solid #fff">
-        <h2><?= Html::encode(Yii::t('app', 'Login with Existing Account')) ?></h2>
         <?= $this->render('@vendor/humanized/yii2-advanced-application-template-user/views/default/login', ['model' => $login]) ?>
-
     </div>
 
     <div class="col-md-6">
-        <h2><?= Html::encode(Yii::t('app', 'Register a New Account')) ?></h2>
-        <?= $this->render('_registrationform', ['model' => $signup]) ?>
+        <h2><?= Html::encode(Yii::t('app', 'Sign Up')) ?></h2>
+        <?= $this->render('_signup', ['model' => $signup]) ?>
 
     </div>
 </div>
