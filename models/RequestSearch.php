@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Request;
+use yii\db\Expression;
 
 /**
  * RequestSearch represents the model behind the search form of `app\models\Request`.
@@ -17,6 +18,7 @@ class RequestSearch extends Request
     const OUTBOX = 1;
 
     public $mode = self::INBOX;
+    public $status;
 
     /**
      * @inheritdoc
@@ -24,7 +26,7 @@ class RequestSearch extends Request
     public function rules()
     {
         return [
-            [['id', 'user_id', 'is_new',], 'integer'],
+            [['id', 'user_id', 'is_new', 'status'], 'integer'],
             [['request_message', 'response_message'], 'safe'],
         ];
     }
@@ -60,9 +62,11 @@ class RequestSearch extends Request
     {
         $query = Request::find();
 
+        $defaultOrder = [];
 
         if ($this->mode == self::INBOX) {
 
+            $defaultOrder['is_new'] = SORT_DESC;
             $query->joinWith('accommodationRequests');
             $subquery = Supply::find()->select('accommodation.id as id')->joinWith('accommodations')->where(['user_id' => Yii::$app->user->id]);
             $query->andFilterWhere(['IN', 'accommodation_id', $subquery]);
@@ -71,15 +75,15 @@ class RequestSearch extends Request
         if ($this->mode == self::OUTBOX) {
             $query->andFilterWhere(['not', ['response_date' => null]]);
             $query->andFilterWhere([
-
                 'user_id' => Yii::$app->user->id]);
         }
-
+        $defaultOrder['request_date'] = SORT_ASC;
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => ['defaultOrder' => $defaultOrder]
         ]);
 
         $this->load($params);

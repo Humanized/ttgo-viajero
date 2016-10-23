@@ -18,6 +18,11 @@ use Yii;
 class Request extends \yii\db\ActiveRecord
 {
 
+    const REJECTED = -1;
+    const PENDING = 0;
+    const ACCEPTED = 1;
+    const PARTIAL = 2;
+
     public $supplyId;
     public $accommodation = [];
 
@@ -134,6 +139,26 @@ class Request extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
+    public function getStatus()
+    {
+        if (!isset($this->response_date)) {
+            return self::PENDING;
+        }
+        $partialAccepted = false;
+        $fullyAccepted = true;
+        foreach ($this->accommodationRequests as $accommodationRequest) {
+            $partialAccepted = $partialAccepted || $accommodationRequest->is_accepted;
+            $fullyAccepted = $partialAccepted && $accommodationRequest->is_accepted;
+        }
+        if (!$partialAccepted) {
+            return self::REJECTED;
+        }
+        if ($fullyAccepted) {
+            return self::ACCEPTED;
+        }
+        return self::PARTIAL;
+    }
+
     public function isRejected()
     {
         if ($this->response_date === null) {
@@ -164,26 +189,37 @@ class Request extends \yii\db\ActiveRecord
     public function load($data, $formName = null)
     {
         if (parent::load($data, $formName)) {
+            /*
+              if (isset($this->id)) {
 
-            foreach ($data['AccommodationRequest'] as $key => $value) {
-                //Get accommodation supplied for key
+              }
+             * 
+             */
+            $this->_loadAccommodationRequest($data);
 
-                $supplyId = (isset($this->id) ? $this->supply->id : $this->supplyId);
-                $accommodation = Supply::findAccommodation($supplyId, $key);
-                if (isset($accommodation)) {
-                    $model = $this->accommodation[$key];
-                    if (!isset($this->id)) {
-                        $model->accommodation_id = $accommodation->id;
-                        $model->request_count = $value["request_count"];
-                    }
-                    if (isset($this->id)) {
-                        $model->is_accepted = $value["is_accepted"];
-                    }
-                }
-            }
             return true;
         }
         return false;
+    }
+
+    private function _loadAccommodationRequest($data)
+    {
+        foreach ($data['AccommodationRequest'] as $key => $value) {
+//Get accommodation supplied for key
+
+            $supplyId = (isset($this->id) ? $this->supply->id : $this->supplyId);
+            $accommodation = Supply::findAccommodation($supplyId, $key);
+            if (isset($accommodation)) {
+                $model = $this->accommodation[$key];
+                if (!isset($this->id)) {
+                    $model->accommodation_id = $accommodation->id;
+                    $model->request_count = $value["request_count"];
+                }
+                if (isset($this->id)) {
+                    $model->is_accepted = $value["is_accepted"];
+                }
+            }
+        }
     }
 
     public function beforeValidate()
@@ -195,6 +231,19 @@ class Request extends \yii\db\ActiveRecord
             return true;
         }
         return false;
+    }
+
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+        if (!$insert) {
+
+            $this->is_new = 0;
+            $this->response_date = date('Y-m-d H:i:s');
+        }
+        return true;
     }
 
     public function afterSave($insert, $changedAttributes)

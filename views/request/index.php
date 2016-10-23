@@ -13,13 +13,13 @@ use yii\widgets\Pjax;
 $mode = ($searchModel->mode == app\models\RequestSearch::INBOX ? 'in' : 'out');
 
 $fnRowOptions = function($model) {
-    return ['style' => 'color:gray', 'class' => $model->is_new ? 'info' : ($model->isRejected() ? 'danger' : 'success')];
+    return ['style' => 'color:black', 'class' => $model->is_new ? 'label-info' : 'warning'];
 };
 
 $fnAfterRow = function($model) {
-
-    return '<tr><td colspan=100>' . $this->render('_request', ['data' => $model, 'asForm' => false]) . '</td></tr>';
+    return '<tr class="hidden extra-row-' . $model->id . '"><td colspan=100>' . $this->render('_request', ['data' => $model, 'asForm' => false]) . '</td></tr>';
 };
+
 
 $this->title = ucwords(Yii::t('app', ($mode . ($mode == 'out' ? 'going' : 'coming') . ' Requests')));
 $this->params['breadcrumbs'][] = $this->title;
@@ -39,7 +39,11 @@ $gridColumns = [
     ['attribute' => 'user_id', 'label' => Yii::t('app', 'To'), 'value' => function($model) {
             return $model->supply->user_id;
         }],
-    ['class' => 'yii\grid\ActionColumn', 'options' =>
+    ['attribute' => 'response_date',
+        'label' => Yii::t('app', 'Status'), 'value' => function($model) {
+            return $model->status;
+        }],
+    ['class' => 'yii\grid\ActionColumn', 'template' => '{view}', 'options' =>
         ['style' => 'width:100px;']],
 ];
 ?>

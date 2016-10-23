@@ -6,13 +6,35 @@ use kartik\switchinput\SwitchInput;
 
 /* @var $model app\models\Request */
 $form = null;
-$respondBtn = Html::a(Yii::t('app', 'Respond'), ['respond', 'id' => $data->id], ['class' => 'btn btn-primary']);
+$respondBtn = !isset($data->response_date) ? Html::a(Yii::t('app', 'Respond'), ['respond', 'id' => $data->id], ['class' => 'btn btn-primary']) : "";
 if ($asForm) {
     $form = ActiveForm::begin();
     $respondBtn = Html::submitButton(Yii::t('app', 'Respond'), ['class' => 'btn btn-primary']);
 }
 ?>
+<div class="row" style="margin-bottom: 15px;">
+    <div class="col-xs-12">
+        <?php
+        if (!isset($data->response_date)) {
+            ?>
+            <span class="label label-primary">Pending</span>
+            <?php
+        } elseif ($data->isRejected()) {
+            ?>
+            <span class="label label-danger">Rejected</span> 
+            <?php
+        } else {
+            ?>
+            <span class="label label-success">Accepted</span>
+            <span class="label label-warning">Partially</span> 
+            <?php
+        }
+        ?>
 
+
+
+    </div>
+</div>
 <div class="row">
     <div class="col-md-6">
         <b>Request</b>
@@ -39,14 +61,15 @@ if ($asForm) {
 <div class="row">
 
     <?php
+    $replied = isset($data->response_date);
     foreach ($data->accommodation as $date => $value) {
         if ($data->accommodation[$date]->request_count > 0) {
             ?>
             <div class="col-xs-6 col-md-1">
-                <b><?= date("D", strtotime($date)); ?></br><?= date("d-m-Y", strtotime($date)); ?> </b><br>
+                <small><b><?= date("D", strtotime($date)); ?></br><?= date("d-m-Y", strtotime($date)); ?> </b></small><br>
 
                 <?= $data->accommodation[$date]->request_count ?>
-
+                <div class="pull-right"> <?= $replied ? ($data->accommodation[$date]->is_accepted ? '<i style="color:green;" class="glyphicon glyphicon-ok"></i>' : '<i style="color:red;" class="glyphicon glyphicon-remove"></i>') : '' ?></div>
                 <?=
                 $asForm ? $form->field($value, "[$date]" . "is_accepted")->widget(SwitchInput::classname(), [ 'pluginOptions' => [
                                 //    'labelText' => '<i class="glyphicon glyphicon-stop"></i>',
