@@ -44,6 +44,7 @@ return [
     'No Provisions Available' => '',
     'No response submitted' => '',
     'Offer Hosting' => '',
+    'Offer or request an accomodation for the event.' => '',
     'Private Description' => '',
     'Provisions' => '',
     'Public Description' => '',
