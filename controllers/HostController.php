@@ -53,6 +53,7 @@ class HostController extends Controller
     public function actionOffer()
     {
         if (Yii::$app->user->isGuest) {
+            Yii::$app->user->setReturnUrl(['host/offer']);
             return $this->redirect(Yii::$app->user->loginUrl);
         }
         $model = new Supply();

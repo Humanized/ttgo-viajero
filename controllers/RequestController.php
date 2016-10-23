@@ -8,6 +8,7 @@ use app\models\RequestSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\base\Action;
 
 /**
  * RequestController implements the CRUD actions for Request model.
@@ -15,6 +16,11 @@ use yii\filters\VerbFilter;
 class RequestController extends Controller
 {
 
+    /**
+     * 
+     * @param Action $action
+     * @return boolean
+     */
     public function beforeAction($action)
     {
         if (parent::beforeAction($action)) {
@@ -24,6 +30,8 @@ class RequestController extends Controller
             }
 
             if (Yii::$app->user->isGuest) {
+                //var_dump(Yii::$app->request->queryParams);
+                Yii::$app->user->setReturnUrl([$action->controller->id . '/' . $action->id, 'id' => Yii::$app->request->queryParams['id']]);
                 return $this->redirect(Yii::$app->user->loginUrl);
             }
         }
