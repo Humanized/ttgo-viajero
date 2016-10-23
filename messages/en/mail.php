@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Message translations.
  *
@@ -17,8 +18,8 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'confirmation' => '',
-    'reset' => '',
-    'salutation' => '',
-    'signature' => '',
+    'confirmation' => 'Follow the link below to complete account registration',
+    'reset' => 'Follow the link below to reset your account password',
+    'salutation' => 'Hi there',
+    'signature' => 'See you soon - The TTIP Game Over Team',
 ];
