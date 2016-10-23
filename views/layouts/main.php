@@ -49,12 +49,12 @@ AppAsset::register($this);
                     ?>
                 </div>
                 <div class="jumbotron">
-                    <h2>TTIP Game Over: Round #2<span>Hosting &amp; Accommodation</span></h2>
+                    <h2>TTIP Game Over: Round #2<span><?= Yii::t('app', 'Hosting &amp; Accommodation'); ?></span></h2>
 
                     <p class="lead">Write a little intro about hosting here</p>
                     <p>
-                        <?= Html::a('Offer Hosting', ['host/offer'], ['class' => "btn btn-lg btn-success"]); ?> 
-                        <?= Html::a('Find Hosting', ['host/find'], ['class' => "btn btn-lg btn-success"]); ?>
+                        <?= Html::a(Yii::t('app', 'Offer Hosting'), ['host/offer'], ['class' => "btn btn-lg btn-success"]); ?> 
+                        <?= Html::a(Yii::t('app', 'Find Hosting'), ['host/find'], ['class' => "btn btn-lg btn-success"]); ?>
                         <?= Yii::$app->user->isGuest ? '' : Html::a('Requests', ['request/index'], ['class' => "btn btn-lg btn-info"]); ?>
                     </p>
                 </div>

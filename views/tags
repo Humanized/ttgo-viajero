@@ -1,0 +1,146 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Accommodation	/srv/http/viajero/models/Accommodation.php	/^class Accommodation extends \\yii\\db\\ActiveRecord$/;"	c
+AccommodationRequest	/srv/http/viajero/models/AccommodationRequest.php	/^class AccommodationRequest extends \\yii\\db\\ActiveRecord$/;"	c
+ContactForm	/srv/http/viajero/models/ContactForm.php	/^class ContactForm extends Model$/;"	c
+HostController	/srv/http/viajero/models/HostController.php	/^class HostController extends Controller$/;"	c
+LoginForm	/srv/http/viajero/models/LoginForm.php	/^class LoginForm extends Model$/;"	c
+Request	/srv/http/viajero/models/Request.php	/^class Request extends \\yii\\db\\ActiveRecord$/;"	c
+RequestSearch	/srv/http/viajero/models/RequestSearch.php	/^class RequestSearch extends Request$/;"	c
+Supply	/srv/http/viajero/models/Supply.php	/^class Supply extends \\yii\\db\\ActiveRecord$/;"	c
+SupplySearch	/srv/http/viajero/models/SupplySearch.php	/^class SupplySearch extends Supply$/;"	c
+User	/srv/http/viajero/models/User.php	/^class User extends \\humanized\\user\\models\\User$/;"	c
+UserLanguage	/srv/http/viajero/models/UserLanguage.php	/^class UserLanguage extends \\yii\\db\\ActiveRecord$/;"	c
+_loadAccommodationRequest	/srv/http/viajero/models/Request.php	/^    private function _loadAccommodationRequest($data)$/;"	f
+_user	/srv/http/viajero/models/LoginForm.php	/^            $this->_user = User::findByUsername($this->username);$/;"	v
+_user	/srv/http/viajero/models/LoginForm.php	/^    private $_user = false;$/;"	v
+accommodation	/srv/http/viajero/models/Request.php	/^            $accommodation = Supply::findAccommodation($supplyId, $key);$/;"	v
+accommodation	/srv/http/viajero/models/Request.php	/^        $this->accommodation = [];$/;"	v
+accommodation	/srv/http/viajero/models/Request.php	/^    public $accommodation = [];$/;"	v
+accommodation	/srv/http/viajero/models/Supply.php	/^            \/\/   $this->accommodation = $data['Accommodation'];$/;"	v
+accommodation	/srv/http/viajero/models/Supply.php	/^        $this->accommodation = [];$/;"	v
+accommodation	/srv/http/viajero/models/Supply.php	/^    public $accommodation = [];$/;"	v
+actionDelete	/srv/http/viajero/models/HostController.php	/^    public function actionDelete($id)$/;"	f
+actionFind	/srv/http/viajero/models/HostController.php	/^    public function actionFind()$/;"	f
+actionOffer	/srv/http/viajero/models/HostController.php	/^    public function actionOffer()$/;"	f
+actionRequest	/srv/http/viajero/models/HostController.php	/^    public function actionRequest($id)$/;"	f
+actionUpdate	/srv/http/viajero/models/HostController.php	/^    public function actionUpdate($id)$/;"	f
+afterFind	/srv/http/viajero/models/Request.php	/^    public function afterFind()$/;"	f
+afterFind	/srv/http/viajero/models/Supply.php	/^    public function afterFind()$/;"	f
+afterSave	/srv/http/viajero/models/Request.php	/^    public function afterSave($insert, $changedAttributes)$/;"	f
+afterSave	/srv/http/viajero/models/Supply.php	/^    public function afterSave($insert, $changedAttributes)$/;"	f
+attributeLabels	/srv/http/viajero/models/Accommodation.php	/^    public function attributeLabels()$/;"	f
+attributeLabels	/srv/http/viajero/models/AccommodationRequest.php	/^    public function attributeLabels()$/;"	f
+attributeLabels	/srv/http/viajero/models/ContactForm.php	/^    public function attributeLabels()$/;"	f
+attributeLabels	/srv/http/viajero/models/Request.php	/^    public function attributeLabels()$/;"	f
+attributeLabels	/srv/http/viajero/models/RequestSearch.php	/^    public function attributeLabels()$/;"	f
+attributeLabels	/srv/http/viajero/models/Supply.php	/^    public function attributeLabels()$/;"	f
+attributeLabels	/srv/http/viajero/models/UserLanguage.php	/^    public function attributeLabels()$/;"	f
+beforeSave	/srv/http/viajero/models/Accommodation.php	/^    public function beforeSave($insert)$/;"	f
+beforeSave	/srv/http/viajero/models/AccommodationRequest.php	/^    public function beforeSave($insert)$/;"	f
+beforeSave	/srv/http/viajero/models/Request.php	/^    public function beforeSave($insert)$/;"	f
+beforeValidate	/srv/http/viajero/models/Request.php	/^    public function beforeValidate()$/;"	f
+beforeValidate	/srv/http/viajero/models/Supply.php	/^    public function beforeValidate()$/;"	f
+behaviors	/srv/http/viajero/models/HostController.php	/^    public function behaviors()$/;"	f
+body	/srv/http/viajero/models/ContactForm.php	/^    public $body;$/;"	v
+checkAccommodation	/srv/http/viajero/models/Request.php	/^    public function checkAccommodation()$/;"	f
+checkAccommodation	/srv/http/viajero/models/Supply.php	/^    public function checkAccommodation()$/;"	f
+contact	/srv/http/viajero/models/ContactForm.php	/^    public function contact($email)$/;"	f
+currentDate	/srv/http/viajero/models/Request.php	/^        $currentDate = Yii::$app->params['dateStart'];$/;"	v
+currentDate	/srv/http/viajero/models/Supply.php	/^        $currentDate = Yii::$app->params['dateStart'];$/;"	v
+dataProvider	/srv/http/viajero/models/HostController.php	/^        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);$/;"	v
+dataProvider	/srv/http/viajero/models/RequestSearch.php	/^        $dataProvider = new ActiveDataProvider([$/;"	v
+dataProvider	/srv/http/viajero/models/SupplySearch.php	/^        $dataProvider = new ActiveDataProvider([$/;"	v
+date	/srv/http/viajero/models/Request.php	/^        foreach ($this->accommodation as $date => $model) {$/;"	v
+date	/srv/http/viajero/views/host/_form.php	/^        foreach ($model->accommodation as $date => $value) {$/;"	v
+defaultOrder	/srv/http/viajero/models/RequestSearch.php	/^        $defaultOrder = [];$/;"	v
+email	/srv/http/viajero/models/ContactForm.php	/^    public $email;$/;"	v
+findAccommodation	/srv/http/viajero/models/Supply.php	/^    public static function findAccommodation($id, $date)$/;"	f
+findModel	/srv/http/viajero/models/HostController.php	/^    protected function findModel($id)$/;"	f
+for	/srv/http/viajero/models/Accommodation.php	/^ * This is the model class for table "accommodation".$/;"	c
+for	/srv/http/viajero/models/AccommodationRequest.php	/^ * This is the model class for table "accommodation_request".$/;"	c
+for	/srv/http/viajero/models/Request.php	/^ * This is the model class for table "request".$/;"	c
+for	/srv/http/viajero/models/Supply.php	/^ * This is the model class for table "supply".$/;"	c
+for	/srv/http/viajero/models/UserLanguage.php	/^ * This is the model class for table "user_language".$/;"	c
+form	/srv/http/viajero/views/host/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	v
+formName	/srv/http/viajero/models/Request.php	/^    public function load($data, $formName = null)$/;"	v
+formName	/srv/http/viajero/models/Supply.php	/^    public function load($data, $formName = null)$/;"	v
+fullyAccepted	/srv/http/viajero/models/Request.php	/^            $fullyAccepted = $partialAccepted && $accommodationRequest->is_accepted;$/;"	v
+fullyAccepted	/srv/http/viajero/models/Request.php	/^        $fullyAccepted = true;$/;"	v
+getAccommodation	/srv/http/viajero/models/AccommodationRequest.php	/^    public function getAccommodation()$/;"	f
+getAccommodationRequest	/srv/http/viajero/models/Request.php	/^    public function getAccommodationRequest()$/;"	f
+getAccommodationRequests	/srv/http/viajero/models/Request.php	/^    public function getAccommodationRequests()$/;"	f
+getAccommodations	/srv/http/viajero/models/Supply.php	/^    public function getAccommodations()$/;"	f
+getRecipient	/srv/http/viajero/models/Request.php	/^    public function getRecipient()$/;"	f
+getRequest	/srv/http/viajero/models/AccommodationRequest.php	/^    public function getRequest()$/;"	f
+getSender	/srv/http/viajero/models/Request.php	/^    public function getSender()$/;"	f
+getStatus	/srv/http/viajero/models/Request.php	/^    public function getStatus()$/;"	f
+getSupply	/srv/http/viajero/models/Request.php	/^    public function getSupply()$/;"	f
+getSupplyAccommodation	/srv/http/viajero/models/Request.php	/^    public function getSupplyAccommodation()$/;"	f
+getUser	/srv/http/viajero/models/LoginForm.php	/^    public function getUser()$/;"	f
+getUser	/srv/http/viajero/models/Request.php	/^    public function getUser()$/;"	f
+getUser	/srv/http/viajero/models/Supply.php	/^    public function getUser()$/;"	f
+hasAccommodation	/srv/http/viajero/models/Request.php	/^                $hasAccommodation = true;$/;"	v
+hasAccommodation	/srv/http/viajero/models/Request.php	/^        $hasAccommodation = false;$/;"	v
+hasAccommodation	/srv/http/viajero/models/Supply.php	/^                $hasAccommodation = true;$/;"	v
+hasAccommodation	/srv/http/viajero/models/Supply.php	/^        $hasAccommodation = false;$/;"	v
+init	/srv/http/viajero/models/Request.php	/^    public function init()$/;"	f
+init	/srv/http/viajero/models/Supply.php	/^    public function init()$/;"	f
+isRejected	/srv/http/viajero/models/Request.php	/^    public function isRejected()$/;"	f
+is_new	/srv/http/viajero/models/Request.php	/^            $this->is_new = 0;$/;"	v
+key	/srv/http/viajero/models/Request.php	/^        foreach ($data['AccommodationRequest'] as $key => $value) {$/;"	v
+key	/srv/http/viajero/models/Supply.php	/^            foreach ($data['Accommodation'] as $key => $value) {$/;"	v
+load	/srv/http/viajero/models/Request.php	/^    public function load($data, $formName = null)$/;"	f
+load	/srv/http/viajero/models/Supply.php	/^    public function load($data, $formName = null)$/;"	f
+login	/srv/http/viajero/models/LoginForm.php	/^    public function login()$/;"	f
+mode	/srv/http/viajero/models/RequestSearch.php	/^            'user_id' => Yii::t('app', $this->mode == self::INBOX ? 'Received By' : 'Sent To'),$/;"	v
+mode	/srv/http/viajero/models/RequestSearch.php	/^    public $mode = self::INBOX;$/;"	v
+model	/srv/http/viajero/models/HostController.php	/^        $model = $this->findModel($id);$/;"	v
+model	/srv/http/viajero/models/HostController.php	/^        $model = new Supply();$/;"	v
+model	/srv/http/viajero/models/Request.php	/^                $model = $this->accommodation[$key];$/;"	v
+model	/srv/http/viajero/models/Supply.php	/^                $model = $this->accommodation[$key];$/;"	v
+model	/srv/http/viajero/models/Supply.php	/^        $model = self::findOne($id);$/;"	v
+name	/srv/http/viajero/models/ContactForm.php	/^    public $name;$/;"	v
+partialAccepted	/srv/http/viajero/models/Request.php	/^            $partialAccepted = $partialAccepted || $accommodationRequest->is_accepted;$/;"	v
+partialAccepted	/srv/http/viajero/models/Request.php	/^        $partialAccepted = false;$/;"	v
+password	/srv/http/viajero/models/LoginForm.php	/^    public $password;$/;"	v
+query	/srv/http/viajero/models/RequestSearch.php	/^        $query = Request::find();$/;"	v
+query	/srv/http/viajero/models/SupplySearch.php	/^        $query = Supply::find();$/;"	v
+rememberMe	/srv/http/viajero/models/LoginForm.php	/^    public $rememberMe = true;$/;"	v
+request_date	/srv/http/viajero/models/Request.php	/^                $this->request_date = date('Y-m-d H:i:s');$/;"	v
+response_date	/srv/http/viajero/models/Request.php	/^            $this->response_date = date('Y-m-d H:i:s');$/;"	v
+rules	/srv/http/viajero/models/Accommodation.php	/^    public function rules()$/;"	f
+rules	/srv/http/viajero/models/AccommodationRequest.php	/^    public function rules()$/;"	f
+rules	/srv/http/viajero/models/ContactForm.php	/^    public function rules()$/;"	f
+rules	/srv/http/viajero/models/LoginForm.php	/^    public function rules()$/;"	f
+rules	/srv/http/viajero/models/Request.php	/^    public function rules()$/;"	f
+rules	/srv/http/viajero/models/RequestSearch.php	/^    public function rules()$/;"	f
+rules	/srv/http/viajero/models/Supply.php	/^    public function rules()$/;"	f
+rules	/srv/http/viajero/models/SupplySearch.php	/^    public function rules()$/;"	f
+rules	/srv/http/viajero/models/UserLanguage.php	/^    public function rules()$/;"	f
+scenarios	/srv/http/viajero/models/RequestSearch.php	/^    public function scenarios()$/;"	f
+scenarios	/srv/http/viajero/models/SupplySearch.php	/^    public function scenarios()$/;"	f
+search	/srv/http/viajero/models/RequestSearch.php	/^    public function search($params)$/;"	f
+search	/srv/http/viajero/models/SupplySearch.php	/^    public function search($params)$/;"	f
+searchModel	/srv/http/viajero/models/HostController.php	/^        $searchModel = new SupplySearch();$/;"	v
+status	/srv/http/viajero/models/RequestSearch.php	/^    public $status;$/;"	v
+subject	/srv/http/viajero/models/ContactForm.php	/^    public $subject;$/;"	v
+subquery	/srv/http/viajero/models/RequestSearch.php	/^            $subquery = Supply::find()->select('accommodation.id as id')->joinWith('accommodations')->where(['user_id' => Yii::$app->user->id]);$/;"	v
+supplyId	/srv/http/viajero/models/Request.php	/^            $supplyId = (isset($this->id) ? $this->supply->id : $this->supplyId);$/;"	v
+supplyId	/srv/http/viajero/models/Request.php	/^        $this->supplyId = $this->accommodationRequests[0]->accommodation->supply_id;$/;"	v
+supplyId	/srv/http/viajero/models/Request.php	/^    public $supplyId;$/;"	v
+tableName	/srv/http/viajero/models/Accommodation.php	/^    public static function tableName()$/;"	f
+tableName	/srv/http/viajero/models/AccommodationRequest.php	/^    public static function tableName()$/;"	f
+tableName	/srv/http/viajero/models/Request.php	/^    public static function tableName()$/;"	f
+tableName	/srv/http/viajero/models/Supply.php	/^    public static function tableName()$/;"	f
+tableName	/srv/http/viajero/models/UserLanguage.php	/^    public static function tableName()$/;"	f
+title	/srv/http/viajero/views/host/create.php	/^$this->title = Yii::t('app', 'Offer Hosting');$/;"	v
+user	/srv/http/viajero/models/LoginForm.php	/^            $user = $this->getUser();$/;"	v
+user_id	/srv/http/viajero/models/Supply.php	/^            $this->user_id = \\Yii::$app->user->id;$/;"	v
+username	/srv/http/viajero/models/LoginForm.php	/^    public $username;$/;"	v
+validatePassword	/srv/http/viajero/models/LoginForm.php	/^    public function validatePassword($attribute, $params)$/;"	f
+verifyCode	/srv/http/viajero/models/ContactForm.php	/^    public $verifyCode;$/;"	v

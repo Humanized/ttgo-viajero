@@ -30,6 +30,7 @@ return [
     'Description' => '',
     'Find Hosting' => '',
     'From' => '',
+    'Hosting &amp; Accommodation' => '',
     'ID' => '',
     'ISO-639-2' => '',
     'Is Default' => '',
