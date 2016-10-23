@@ -47,7 +47,7 @@ class UserLanguage extends \yii\db\ActiveRecord
 
     public static function sync($userId, $languages)
     {
-        
+        return true;
     }
 
 }
