@@ -1,12 +1,12 @@
 <div class="row"  style="background:whitesmoke;border:2px solid lightslategray; border-bottom:0px;height:100%;">
-    <h5>Provisions</h5>
+<h5><?= Yii:t('app', 'Provisions'); ?></h5>
 
     <div class="row"style="font-size: 0.9em;background:whitesmoke; color:black;border:2px solid lightslategray;border-bottom:0px;">
         <?php
         foreach ($model->accommodation as $date => $value) {
             ?>
             <div class="col-xs-4 col-md-1"style="border-right:2px solid lightslategray;">
-                <b><?= date("D", strtotime($date)); ?></br><?= date("d M", strtotime($date)); ?> </b><br>
+                <b><?= Yii::$app->formatter->asDate(strtotime($date), 'EEE<br> dd-MM-yy'); ?></b><br>
                 <?= $value->accommodation_count ?>
             </div>
             <?php
@@ -14,7 +14,7 @@
         ?>
     </div>
     <div class="col-md-2" style="height:100%;font-weight: bolder;padding:5px; color:black">
-        <h5>Provisions</h5>
+        <h5><?= Yii::t('app', 'Provisions'); ?></h5>
         <?php
         $none = true;
         ?>
@@ -26,7 +26,7 @@
 
 
     <div class="col-md-offset-1 col-md-9" style="padding-top:5px;" >
-        <h5 style="color:black;">Description</h5>
+        <h5 style="color:black;"><?= Yii:t('app', 'Description'); ?></h5>
         <p style="color:lightslategray;border: lightblue solid 1px;padding:10px;"><?= $model->description_public; ?></p>
     </div>
     <div class="row"style="color:black;background:whitesmoke; border:2px solid lightslategray; border-top:0px;padding-top: 10px;padding-right: 10px;margin-bottom: 20px; ">
@@ -41,7 +41,7 @@
                             'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                             'method' => 'post',
                 ]]) : ''
-            ?> 
+            ?>
         </p>
     </div>
 

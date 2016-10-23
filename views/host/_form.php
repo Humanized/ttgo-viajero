@@ -13,7 +13,7 @@ use kartik\switchinput\SwitchInput;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <h4>Description</h4>
+    <h4><?= Yii::t('app', 'Description'); ?></h4>
 
     <div class="row">
 
@@ -57,7 +57,7 @@ use kartik\switchinput\SwitchInput;
 
         </div>
     </div>
-    <h3>Accommodation Provided</h3>
+    <h3><?= Yii::t('app', 'Accommodation Provided'); ?></h3>
     <div class="row">
 
         <?php
@@ -65,7 +65,7 @@ use kartik\switchinput\SwitchInput;
             ?>
 
             <div class="col-xs-4 col-md-1">
-                <b><?= date("D", strtotime($date)); ?></br><?= date("d-m-Y", strtotime($date)); ?> </b><br>
+                <b><?= Yii::$app->formatter->asDate(strtotime($date), 'EEE<br> dd-MM-yy'); ?></b><br>
                 <?= $form->field($value, "[$date]accommodation_count")->label(false) ?>
             </div>
 

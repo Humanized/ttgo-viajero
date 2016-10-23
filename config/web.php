@@ -7,6 +7,7 @@ $config = [
     'name' => 'TTIP GAME OVER',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'app\components\SiteTitle'],
+    'language' => 'fr',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -46,6 +47,20 @@ $config = [
                 ],
             ],
         ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                        'app/error' => 'error.php',
+                    ],
+                ],
+            ],
+        ],
+
         'db' => require(__DIR__ . '/db.php'),
     /*
       'urlManager' => [
