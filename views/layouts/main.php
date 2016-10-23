@@ -40,7 +40,7 @@ AppAsset::register($this);
                 <div class="pull-right">
 
                     <?=
-                    Yii::$app->user->isGuest ? '' :
+                    Yii::$app->user->isGuest ? Html::a('<i style="font-weight:bold;" class="glyphicon glyphicon-log-in"></i>', ['account/index'], ['class' => 'btn btn-info']) :
                             Html::beginForm(['/site/logout'], 'post')
                             . Html::submitButton(
                                     '<i style="font-weight:bold;" class="glyphicon glyphicon-log-out"></i>', ['class' => 'btn btn-danger logout']
