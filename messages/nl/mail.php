@@ -18,8 +18,10 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'confirmation' => 'Gebruik de link om u registratie te volledigen.',
-    'reset' => 'Gebruik de link om uw wachtwoord te wijzigen',
+    'confirmation_subject' => 'TTIP Game Over Round #2 - Registratie Voltooien',
+    'confirmation_body' => 'Gebruik de link om u registratie te voltooien.',
+    'reset_subject' => 'TTIP Game Over Round #2 - Wachtwoord Wijzigen',
+    'reset_body' => 'Gebruik de link om uw wachtwoord te wijzigen',
     'salutation' => 'Hoi',
     'signature' => 'Tot Snel - De TTIP Game Over Team',
 ];

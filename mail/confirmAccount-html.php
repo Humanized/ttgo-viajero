@@ -10,7 +10,7 @@ $confirmLink = Yii::$app->urlManager->createAbsoluteUrl(['/account/confirm', 'to
 ?>
 <div class="confirm-account">
     <p><?= Yii::t('mail', 'salutation') ?>,</p>
-    <p><?= Yii::t('mail', 'confirmation') ?>:</p>
+    <p><?= Yii::t('mail', 'confirmation_body') ?>:</p>
     <p><?= Html::a(Html::encode($resetLink), $resetLink) ?></p>
     <p><?= Yii::t('mail', 'signature') ?></p>
 

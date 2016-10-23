@@ -18,8 +18,10 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'confirmation' => 'Follow the link below to complete account registration',
-    'reset' => 'Follow the link below to reset your account password',
+    'confirmation_subject' => 'Follow the link below to complete account registration',
+    'confirmation_body' => 'Follow the link below to complete account registration',
+    'reset_subject' => 'Follow the link below to reset your account password',
+    'reset_body' => 'Follow the link below to reset your account password',
     'salutation' => 'Hi there',
     'signature' => 'See you soon - The TTIP Game Over Team',
 ];
