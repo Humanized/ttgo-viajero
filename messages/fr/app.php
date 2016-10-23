@@ -24,8 +24,6 @@ return [
     'ISO-639-2' => '',
     'Name (Local)' => '',
     'Name (Native)' => '',
-    'Here you can request or offer an accomodation for the event.' =>
-        'Ici vous pouvez demander ou offrir un logement pour l\'événement.',
     'Request Count' => '',
     'Request ID' => '',
     'Requests' => '',
@@ -35,7 +33,7 @@ return [
     'Supply ID' => '',
     'To' => '',
     'User ID' => '',
-    'Request Accomodation' => '@@@@',
+    'host.date.title' => 'Entrez le nombre de places disponibles pour chaque jour.',
     'Accept' => 'Accepter',
     'Accommodation Provided' => 'Places disponibles',
     'Account Verification' => 'Vérification du Compte',
@@ -46,6 +44,7 @@ return [
     'Description' => 'Description',
     'Find Hosting' => 'Trouver',
     'From' => 'De',
+    'Here you can request or offer an accomodation for the event.' => 'Ici vous pouvez demander ou offrir un logement pour l\'événement.',
     'Hosting &amp; Accommodation' => 'Hébergement',
     'Is Default' => 'Défaut',
     'Is New' => 'Nouveau',
@@ -77,4 +76,7 @@ return [
     'Verification Code' => 'Code de Vérification',
     'Wifi' => 'Wifi',
     'Wifi available' => 'Wifi disponible',
+    'account.msg.confirmation' => 'Presque fini! Veuillez vérifier votre boite mail pour confirmer la création de votre compte.',
+    'host.description_private.placeholder' => 'Écrivez un message qui sera envoyé par email aux personnes qui font une demande pour être logé.',
+    'host.description_public.placeholder' => 'Décrivez votre vous et votre offre. Ce message sera affiché publiquement.',
 ];
