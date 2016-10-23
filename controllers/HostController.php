@@ -52,6 +52,9 @@ class HostController extends Controller
      */
     public function actionOffer()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(Yii::$app->user->loginUrl);
+        }
         $model = new Supply();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

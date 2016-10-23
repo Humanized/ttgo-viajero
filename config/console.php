@@ -15,10 +15,17 @@ $config = [
         'maintenance' => [
             'class' => 'humanized\maintenance\Module',
         ],
+        'user' => [
+            'class' => 'humanized\usermanagement\Module',
+        ],
     ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'user' => [
+            'class' => 'yii\web\User',
+            'identityClass' => 'app\models\User',
         ],
         'log' => [
             'targets' => [

@@ -37,6 +37,17 @@ AppAsset::register($this);
 
         <div class="wrap">
             <div class="container">
+                <div class="pull-right">
+
+                    <?=
+                    Yii::$app->user->isGuest ? '' :
+                            Html::beginForm(['/site/logout'], 'post')
+                            . Html::submitButton(
+                                    '<i style="font-weight:bold;" class="glyphicon glyphicon-log-out"></i>', ['class' => 'btn btn-danger logout']
+                            )
+                            . Html::endForm();
+                    ?>
+                </div>
                 <div class="jumbotron">
                     <h2>TTIP Game Over: Round #2<span>Hosting &amp; Accommodation</span></h2>
 

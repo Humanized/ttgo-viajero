@@ -24,7 +24,7 @@ class RequestController extends Controller
             }
 
             if (Yii::$app->user->isGuest) {
-                //    return $this->redirect(Yii::$app->user->loginUrl);
+                return $this->redirect(Yii::$app->user->loginUrl);
             }
         }
         return true;
@@ -136,7 +136,7 @@ class RequestController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['/host/find']);
         }
-     //   var_dump($model->errors);
+        //   var_dump($model->errors);
         return $this->render('respond', [
                     'model' => $model,
         ]);
