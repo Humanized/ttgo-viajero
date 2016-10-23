@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Message translations.
  *
@@ -17,8 +18,8 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'confirmation' => '',
-    'reset' => '',
-    'salutation' => '',
-    'signature' => '',
+    'confirmation' => 'Gebruik de link om u registratie te volledigen.',
+    'reset' => 'Gebruik de link om uw wachtwoord te wijzigen',
+    'salutation' => 'Hoi',
+    'signature' => 'Tot Snel - De TTIP Game Over Team',
 ];
