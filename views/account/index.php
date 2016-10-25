@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\RequestSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Account Verification') . ' - TTIP GAME OVER';
+$this->title = Yii::t('app', 'Authentication');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

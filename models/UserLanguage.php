@@ -13,6 +13,8 @@ use Yii;
 class UserLanguage extends \yii\db\ActiveRecord
 {
 
+    public $touched = false;
+
     /**
      * @inheritdoc
      */
@@ -45,9 +47,9 @@ class UserLanguage extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function sync($userId, $languages)
+    public static function available()
     {
-        return true;
+       
     }
 
 }

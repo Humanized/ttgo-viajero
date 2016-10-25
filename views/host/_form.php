@@ -70,10 +70,8 @@ use kartik\switchinput\SwitchInput;
             ?>
 
             <div class="col-xs-4 col-md-1">
-                <b><?= Yii::$app->formatter->asDate(strtotime($date), 'EEE<br> dd-MM-yy'); ?></b><br>
-                <?= $form->field($value, "[$date]accommodation_count")->label([
-                        'title' => Yii::t('app', 'host.date.title')
-                    ]) ?>
+                <b><?= Yii::$app->formatter->asDate(strtotime($date), 'EEE dd-MM-yy'); ?></b><br>
+                <?= $form->field($value, "[$date]accommodation_count")->label(false)?>
             </div>
 
             <?php

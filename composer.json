@@ -15,14 +15,15 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.5",
+        "yiisoft/yii2": "2.0.10",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "humanized/yii2-translation": "*",
         "humanized/yii2-maintenance": "*",
         "humanized/yii2-advanced-application-template-user": "*",
         "humanized/yii2-user-management": "*",
-        "kartik-v/yii2-widget-switchinput": "*"
+        "kartik-v/yii2-widget-switchinput": "*",
+        "kartik-v/yii2-widget-select2": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

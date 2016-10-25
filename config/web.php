@@ -3,7 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'webapp',
     'name' => 'TTIP GAME OVER',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'app\components\SiteTitle'],
@@ -37,19 +37,6 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => false,
-            'transport' => [
-                'class' => 'Swift_SmtpTransport',
-                'host' => ' smtp.gmail.com',
-                'username' => 'ttgo.viajero@gmail.com',
-                'password' => '',
-                'port' => '587',
-                'encryption' => 'tls',
-            /*
-              'port' => '465',
-              'encryption' => 'ssl',
-             * 
-             */
-            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

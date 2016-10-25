@@ -6,6 +6,7 @@ use Yii;
 use humanized\user\controllers\DefaultController as ParentController;
 use humanized\user\models\LoginForm;
 use app\models\SignupForm;
+use app\models\AccountSettingsForm;
 
 /**
  * SupplyController implements the CRUD actions for Supply model.
@@ -31,11 +32,23 @@ class AccountController extends ParentController
                 ]);
             }
         }
-
         return $this->render('index', [
                     'login' => $login,
                     'signup' => $signup,
         ]);
+    }
+
+    public function actionSettings()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->goBack();
+        }
+        $model = new AccountSettingsForm();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('ok', 'Changes Saved');
+        }
+
+        return $this->render('settings', ['model' => $model]);
     }
 
 }
