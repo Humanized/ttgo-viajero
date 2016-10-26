@@ -73,12 +73,13 @@ class RequestSearch extends Request
         }
 
         if ($this->mode == self::OUTBOX) {
-            $query->andFilterWhere(['not', ['response_date' => null]]);
+
+            //    $query->andFilterWhere(['not', ['response_date' => null]]);
             $query->andFilterWhere([
                 'user_id' => Yii::$app->user->id]);
         }
         $defaultOrder['request_date'] = SORT_ASC;
-
+  
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -91,6 +92,7 @@ class RequestSearch extends Request
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
+
             return $dataProvider;
         }
 

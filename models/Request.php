@@ -238,6 +238,9 @@ class Request extends \yii\db\ActiveRecord
         if (!parent::beforeSave($insert)) {
             return false;
         }
+        if ($insert) {
+            $this->user_id = Yii::$app->user->id;
+        }
         if (!$insert) {
 
             $this->is_new = 0;

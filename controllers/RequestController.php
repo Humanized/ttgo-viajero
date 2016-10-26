@@ -30,7 +30,6 @@ class RequestController extends Controller
             }
 
             if (Yii::$app->user->isGuest) {
-                //var_dump(Yii::$app->request->queryParams);
                 Yii::$app->user->setReturnUrl([$action->controller->id . '/' . $action->id, 'id' => Yii::$app->request->queryParams['id']]);
                 return $this->redirect(Yii::$app->user->loginUrl);
             }
