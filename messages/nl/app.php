@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Message translations.
  *
@@ -74,7 +75,7 @@ return [
     'Verification Code' => '',
     'Wifi' => '',
     'Wifi available' => '',
-    'account.msg.confirmation' => '',
+    'account-signup-success' => '',
     'host.date.title' => '',
     'host.description_private.placeholder' => '',
     'host.description_public.placeholder' => '',

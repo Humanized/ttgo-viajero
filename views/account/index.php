@@ -11,7 +11,7 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('app', 'Authentication');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
+<?= Yii::$app->session->getFlash('ok'); ?>
 
 <?php Pjax::begin(); ?>
 

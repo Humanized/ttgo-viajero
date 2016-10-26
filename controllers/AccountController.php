@@ -3,7 +3,8 @@
 namespace app\controllers;
 
 use Yii;
-use humanized\user\controllers\DefaultController as ParentController;
+use humanized\user\controllers\DefaultController;
+use app\models\User;
 use humanized\user\models\LoginForm;
 use app\models\SignupForm;
 use app\models\AccountSettingsForm;
@@ -11,7 +12,7 @@ use app\models\AccountSettingsForm;
 /**
  * SupplyController implements the CRUD actions for Supply model.
  */
-class AccountController extends ParentController
+class AccountController extends DefaultController
 {
 
     public function actionIndex()
@@ -28,8 +29,7 @@ class AccountController extends ParentController
         if ($signup->load(Yii::$app->request->post())) {
 
             if (NULL !== $signup->save()) {
-                return $this->render('confirmation', [
-                ]);
+                Yii::$app->session->setFlash('info', Yii::t('app', 'account-signup-success'));
             }
         }
         return $this->render('index', [
@@ -45,9 +45,25 @@ class AccountController extends ParentController
         }
         $model = new AccountSettingsForm();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('ok', 'Changes Saved');
+            Yii::$app->session->setFlash('info', 'Changes Saved');
+        }
+        return $this->render('settings', ['model' => $model]);
+    }
+
+    public function actionConfirm($token)
+    {
+        if (!User::isPasswordResetTokenValid($token)) {
+            Yii::$app->session->setFlash('error', 'Confirmation link expired - Use password reset to regenerate link');
+            return $this->redirect(['request-password-reset']);
         }
 
+        $model = new AccountSettingsForm(['token' => $token]);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $this->redirect('index');
+            
+            return;
+        }
         return $this->render('settings', ['model' => $model]);
     }
 

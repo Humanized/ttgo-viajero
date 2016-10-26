@@ -37,6 +37,20 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => '45.32.185.124',
+                'username' => 'accommodation',
+                'password' => '*OAwo11zkdSk5v',
+                'port' => '587',
+                'encryption' => 'tls',
+                'streamOptions' => [ 'ssl' =>
+                    [ 'allow_self_signed' => true,
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                    ],
+                ]
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -51,19 +65,21 @@ $config = [
             'translations' => [
                 'app*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
+                                'forceTranslation' => true,
                     //'basePath' => '@app/messages',
                     'sourceLanguage' => 'en',
                     'fileMap' => [
                         'app' => 'app.php',
                         'app/error' => 'error.php',
+                        'mail' => 'mail.php',
                     ],
                 ],
                 'mail*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
+                                'forceTranslation' => true,
                     //'basePath' => '@app/messages',
                     'sourceLanguage' => 'en',
                     'fileMap' => [
-                        'mail' => 'mail.php',
                     ],
                 ],
             ],

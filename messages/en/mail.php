@@ -18,9 +18,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'confirmation_subject' => 'Follow the link below to complete account registration',
+    'confirmation_subject' => 'Account Confirmation',
     'confirmation_body' => 'Follow the link below to complete account registration',
-    'reset_subject' => 'Follow the link below to reset your account password',
+    'reset_subject' => 'Password Reset',
     'reset_body' => 'Follow the link below to reset your account password',
     'salutation' => 'Hi there',
     'signature' => 'See you soon - The TTIP Game Over Team',

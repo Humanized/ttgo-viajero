@@ -4,6 +4,7 @@
 
 use yii\bootstrap\Html;
 use app\assets\AppAsset;
+use app\components\Alert;
 
 AppAsset::register($this);
 ?>
@@ -58,7 +59,9 @@ AppAsset::register($this);
                         <?= Yii::$app->user->isGuest ? '' : Html::a('Requests', ['request/index'], ['class' => "btn btn-lg btn-info"]); ?>
                     </p>
                 </div>
-
+                <div class ="row">
+                    <?= Alert::widget() ?>
+                </div>
                 <?= $content ?>
             </div>
         </div>

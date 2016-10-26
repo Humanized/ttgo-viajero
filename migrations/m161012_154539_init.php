@@ -20,6 +20,14 @@ class m161012_154539_init extends Migration
         $this->addPrimaryKey('pk_user_language', 'user_language', ['user_id', 'language']);
         $this->addForeignKey('fk_user_language', 'user_language', 'user_id', 'user', 'id', 'cascade', 'cascade');
 
+        //User Country (not to have to edit default user table, perhaps we should)
+        $this->createTable('user_country', [
+            'user_id' => $this->integer(),
+            'country' => $this->string(2)
+                ], $this->tableOptions);
+        $this->addPrimaryKey('pk_user_country', 'user_country', ['user_id', 'country']);
+        $this->addForeignKey('fk_user_country', 'user_country', 'user_id', 'user', 'id', 'cascade', 'cascade');
+
 
         $this->createTable('supply', [
             'id' => $this->primaryKey(),

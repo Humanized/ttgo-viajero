@@ -16,6 +16,17 @@ class User extends \humanized\user\models\User
         return $this->hasMany(UserLanguage::className(), ['user_id' => 'id']);
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            ['status', 'default', 'value' => self::STATUS_PENDING],
+            ['status', 'in', 'range' => [self::STATUS_PENDING,self::STATUS_ACTIVE, self::STATUS_DELETED]],
+        ];
+    }
+
     public function syncLanguages($languages)
     {
         $storage = \yii\helpers\ArrayHelper::map($this->languages, 'language', 'language');

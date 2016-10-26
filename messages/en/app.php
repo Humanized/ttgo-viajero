@@ -76,7 +76,7 @@ return [
     'Wifi available' => '',
     'Login with Existing Account' => '@@@@',
     'Register a New Account' => '@@@@',
-    'account.msg.confirmation' => 'This is nearly done! Please check your mailbox to confirm your registration.',
+    'account-signup-success' => '<b>Almost done!</b> A confirmation link has been sent to your email.<br><b>Didn\'t receive any mail?</b> Check your spam folder and adjust spam filters accordingly to correctly receive mails from this site.',
     'host.date.title' => 'Input the number of available accodommations for each day.',
     'host.description_private.placeholder' => 'Write a message that will automatically be sent by mail to the persons that request accomodations.',
     'host.description_public.placeholder' => 'Describe your place and yourself. This will be available to the public.',
