@@ -31,7 +31,7 @@ return [
     'Description' => '',
     'Find Hosting' => '',
     'From' => '',
-    'layout.description' => 'Here you can request or offer an accomodation for the event.' => '',
+    'layout.description' => 'Here you can request or offer an accomodation for the event.',
     'layout.subtitle' => 'Hosting &amp; Accommodation',
     'ID' => '',
     'ISO-639-2' => '',
