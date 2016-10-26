@@ -18,7 +18,7 @@ $fnRowOptions = function($model) {
 };
 
 $fnAfterRow = function($model) {
-    return '<tr class="hidden extra-row-' . $model->id . '"><td colspan=100>' . $this->render('_request', ['data' => $model, 'asForm' => false]) . '</td></tr>';
+    return '<tr id="extra-row-' . $model->id . '" class="hidden"><td colspan=100>' . $this->render('_request', ['data' => $model, 'asForm' => false]) . '</td></tr>';
 };
 
 
@@ -53,42 +53,56 @@ if ($mode == 'in') {
                     return $model->supply->user->username;
                 }];
 }
-$gridColumns[] = ['class' => 'yii\grid\ActionColumn', 'template' => '{view}', 'options' =>
-    ['style' => 'width:100px;']];
-?>
+$gridColumns[] = ['class' => 'yii\grid\ActionColumn', 'template' => '{view}', 'buttons' => [
 
-<h2><?= Html::encode($this->title) ?></h2>
-
-<?php Pjax::begin(); ?>
-
-<div class="row">
-    <div class="col-sm-3">
-        <?= $this->render('_search', ['model' => $searchModel]); ?>
-
-    </div>
-
-    <div class="col-sm-9">
-        <?=
-        GridView::widget([
-            'dataProvider' => $dataProvider,
-            //   'filterModel' => $searchModel,
-            'tableOptions' => ['class' => 'table table-bordered'],
-            'rowOptions' => $fnRowOptions,
-            'afterRow' => $fnAfterRow,
-            'columns' => $gridColumns,
-                /*
-                  [
-                  'user_id',
-                  ($mode == 'out' ? 'response' : 'request') . '_message:ntext',
-                  //'request_message:ntext',
-                  //'response_message:ntext',
-                  ['class' => 'yii\grid\ActionColumn'],
-                  ]
-                 * ,
-                 */
-        ]);
+        //view button
+        'view' => function ($url, $model) {
+            $options = [
+                'id' => 'request-' . $model->id,
+                // 'visible' => (int) $model['status'] != 0 ? TRUE : FALSE,
+                //'hidden' => (int) $model['status'] != 0 ? TRUE : FALSE,
+                'title' => \Yii::t('yii', 'Open Request Message'),
+                'aria-label' => \Yii::t('yii', 'Open Request Message'),
+                'onclick' => 'var caller = this.id; toggle="#extra-row"+caller.replace("request",""); $(toggle).removeClass("hidden");',
+            ];
+            return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', null, $options);
+        },
+            ], 'options' =>
+            ['style' => 'width:100px;']];
         ?>
 
-    </div>
-</div>
-<?php Pjax::end(); ?>
+        <h2><?= Html::encode($this->title) ?></h2>
+
+        <?php Pjax::begin(); ?>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <?= $this->render('_search', ['model' => $searchModel]); ?>
+
+            </div>
+
+            <div class="col-sm-9">
+                <?=
+                GridView::widget([
+                    'dataProvider' => $dataProvider,
+                    //   'filterModel' => $searchModel,
+                    'tableOptions' => ['class' => 'table table-bordered'],
+                    'rowOptions' => $fnRowOptions,
+                    'afterRow' => $fnAfterRow,
+                    'columns' => $gridColumns,
+                        /*
+                          [
+                          'user_id',
+                          ($mode == 'out' ? 'response' : 'request') . '_message:ntext',
+                          //'request_message:ntext',
+                          //'response_message:ntext',
+                          ['class' => 'yii\grid\ActionColumn'],
+                          ]
+                         * ,
+                         */
+                ]);
+                ?>
+
+            </div>
+        </div>
+        <?php Pjax::end(); ?>
