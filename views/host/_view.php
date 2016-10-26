@@ -19,7 +19,7 @@ use app\models\Supply;
     foreach ($model->accommodation as $date => $value) {
         ?>
         <div class="col-xs-4 col-md-1"style="border-right:2px solid lightslategray;">
-            <b><?= Yii::$app->formatter->asDate(strtotime($date), 'EEE<br> dd-MM-yy'); ?></b><br>
+            <b><?= Yii::$app->formatter->asDate(strtotime($date), 'EEE dd-MM-yy'); ?></b><br>
             <?= $value->accommodation_count ?>
         </div>
         <?php
