@@ -12,6 +12,8 @@ use app\models\Supply;
  */
 class SupplySearch extends Supply
 {
+    public $scenario = 'search';
+
     /**
      * @inheritdoc
      */
@@ -22,6 +24,8 @@ class SupplySearch extends Supply
             [['description_public', 'description_private'], 'safe'],
         ];
     }
+    
+    
 
     /**
      * @inheritdoc
@@ -51,12 +55,14 @@ class SupplySearch extends Supply
 
         $this->load($params);
 
+
         if (!$this->validate()) {
+
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
-
+        echo $this->user_id;
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -67,8 +73,9 @@ class SupplySearch extends Supply
         ]);
 
         $query->andFilterWhere(['like', 'description_public', $this->description_public])
-            ->andFilterWhere(['like', 'description_private', $this->description_private]);
+                ->andFilterWhere(['like', 'description_private', $this->description_private]);
 
         return $dataProvider;
     }
+
 }

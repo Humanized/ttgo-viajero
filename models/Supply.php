@@ -89,8 +89,11 @@ class Supply extends \yii\db\ActiveRecord
 
     public function beforeValidate()
     {
+
         if (parent::beforeValidate()) {
-            $this->user_id = \Yii::$app->user->id;
+            if ($this->scenario == self::SCENARIO_DEFAULT) {
+                $this->user_id = \Yii::$app->user->id;
+            }
             return true;
         }
         return false;
