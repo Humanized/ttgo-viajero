@@ -78,6 +78,7 @@ return [
     'Wifi' => 'Wifi',
     'Wifi available' => 'Wifi disponible',
     'account-signup-success' => 'Presque fini! Veuillez vérifier votre boite mail pour confirmer la création de votre compte.',
+    'account-reset-success' => '<b>Email sent!</b> A reset link has been sent to your email.<br><b>Didn\'t receive any mail?</b> Check your spam folder and adjust spam filters accordingly to correctly receive mails from this site.',
     'host.date.title' => 'Entrez le nombre de places disponibles pour chaque jour.',
     'host.description_private.placeholder' => 'Écrivez un message qui sera envoyé par email aux personnes qui font une demande pour être logé.',
     'host.description_public.placeholder' => 'Décrivez votre vous et votre offre. Ce message sera affiché publiquement.',

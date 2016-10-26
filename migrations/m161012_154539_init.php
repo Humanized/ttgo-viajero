@@ -81,6 +81,7 @@ class m161012_154539_init extends Migration
         $this->dropTable('request');
         $this->dropTable('accommodation');
         $this->dropTable('supply');
+        $this->dropTable('user_country');
         $this->dropTable('user_language');
         return true;
     }

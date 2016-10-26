@@ -8,7 +8,12 @@
 use yii\bootstrap\Html;
 use app\models\Supply;
 ?>
+<div class="row"style="font-size: 0.9em;background:lightslategray; color:whitesmoke;border:2px solid lightslategray;border-bottom:0px;">
+    <div class="col-md-12" style="padding:5px; color:whitesmoke">
+        <strong><?= Yii::t('app', "Accommodation offered by") ?>: <?= $model->user->username ?></strong>
+    </div>
 
+</div>
 <div class="row"style="font-size: 0.9em;background:whitesmoke; color:black;border:2px solid lightslategray;border-bottom:0px;">
     <?php
     foreach ($model->accommodation as $date => $value) {
@@ -49,7 +54,7 @@ if (isset($enableToolbar) && $enableToolbar == true) {
     <div class="row"style="color:black;background:whitesmoke; border:2px solid lightslategray; border-top:0px;padding-top: 10px;padding-right: 10px;margin-bottom: 20px; ">
 
         <p class="pull-right">
-            <?= Html::a(Yii::t('app', 'Request Accommodation'), ['request/send', 'id' => $model->id], ['class' => "btn btn-md btn-success"]) ?>
+            <?= $model->user_id == Yii::$app->user->id ? '' : Html::a(Yii::t('app', 'Request Accommodation'), ['request/send', 'id' => $model->id], ['class' => "btn btn-md btn-success"]) ?>
             <?= $model->user_id == Yii::$app->user->id ? Html::a(Yii::t('app', 'Update Offer'), ['host/update', 'id' => $model->id], ['class' => "btn btn-md btn-warning"]) : '' ?>
             <?=
             $model->user_id == Yii::$app->user->id ? Html::a(Yii::t('app', 'Remove Offer'), ['host/delete', 'id' => $model->id], [

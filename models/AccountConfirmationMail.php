@@ -8,7 +8,7 @@ use yii\base\Model;
 /**
  * Password reset request form
  */
-class AccountConfirmation extends Model
+class AccountConfirmationMail extends Model
 {
 
     public $email;
@@ -35,7 +35,7 @@ class AccountConfirmation extends Model
      *
      * @return bool whether the email was send
      */
-    public function sendEmail()
+    public function send()
     {
         $userClass = \Yii::$app->user->identityClass;
         /* @var $user User */

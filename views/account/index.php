@@ -17,7 +17,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="row"  style="border:1px solid #fff">
     <div class="col-md-6" style="border-right:1px solid #fff">
-        <?= $this->render('@vendor/humanized/yii2-advanced-application-template-user/views/default/login', ['model' => $login]) ?>
+        <h2><?= Html::encode(Yii::t('app', 'Sign In')) ?></h2>
+        <?= $this->render('_login', ['model' => $login]) ?>
+
     </div>
 
     <div class="col-md-6">

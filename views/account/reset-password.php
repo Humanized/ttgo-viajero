@@ -1,8 +1,20 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 
+$form = ActiveForm::begin(['id' => 'form-settings']);
+?>
+
+
+<div class="form-group">
+    <?=
+    $this->render('_reset-password', [
+        'form' => $form,
+        'model' => $model,
+    ]);
+    ?>
+    <?= Html::submitButton(Yii::t('app', 'Reset Password'), ['class' => 'btn btn-primary', 'name' => 'reset-password-button']) ?>
+</div>
+
+<?php ActiveForm::end(); ?>

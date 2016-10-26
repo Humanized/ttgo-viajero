@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Message translations.
  *
@@ -77,7 +78,11 @@ return [
     'Login with Existing Account' => '@@@@',
     'Register a New Account' => '@@@@',
     'account-signup-success' => '<b>Almost done!</b> A confirmation link has been sent to your email.<br><b>Didn\'t receive any mail?</b> Check your spam folder and adjust spam filters accordingly to correctly receive mails from this site.',
+    'account-confirm-success' => '<b>Account registration confirmed!</b>  Please sign in to continue',
+    'account-reset-sent' => '<b>Email sent!</b> A reset link has been sent to your email.<br><b>Didn\'t receive any mail?</b> Check your spam folder and adjust spam filters accordingly to correctly receive mails from this site.',
+    'account-reset-success' => '<b>Account password reset!</b>  Please sign in to continue',
     'host.date.title' => 'Input the number of available accodommations for each day.',
     'host.description_private.placeholder' => 'Write a message that will automatically be sent by mail to the persons that request accomodations.',
     'host.description_public.placeholder' => 'Describe your place and yourself. This will be available to the public.',
+    'link.error{type}{status}' => '<b>{type} link {status}!</b> Submit account email address to resend link'
 ];

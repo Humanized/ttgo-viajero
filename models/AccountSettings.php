@@ -11,7 +11,7 @@ use Yii;
 /**
  * Signup form
  */
-class AccountSettingsForm extends Model
+class AccountSettings extends Model
 {
 
     public $token = null;
@@ -28,7 +28,7 @@ class AccountSettingsForm extends Model
     {
         return [
             ['name', 'filter', 'filter' => 'trim'],
-            [['name', 'country'], 'required'],
+            [['name', 'languages', 'country'], 'required'],
             ['name', 'string', 'max' => 255],
             ['name', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This user name has already been taken.'],
             ['languages', 'each', 'rule' => ['in', 'range' => LanguageHelper::primary()]],
@@ -40,6 +40,7 @@ class AccountSettingsForm extends Model
     {
         if (empty($this->languages)) {
             $this->addError('languages', 'At least one spoken language must be provided');
+            return false;
         }
     }
 
@@ -59,7 +60,7 @@ class AccountSettingsForm extends Model
             $this->_user = User::findByPasswordResetToken($this->token);
             $this->_password = new PasswordSetup(['token' => $this->token]);
         }
-        $this->name = $this->_user->username;
+        $this->name = substr($this->_user->username, 0, 5) == 'user_' ? null : $this->_user->username;
         $languageMap = function($userLanguage) {
             return $userLanguage->language;
         };

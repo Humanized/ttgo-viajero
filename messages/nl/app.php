@@ -76,6 +76,7 @@ return [
     'Wifi' => '',
     'Wifi available' => '',
     'account-signup-success' => '',
+    'account-reset-success' => '<b>Email sent!</b> A reset link has been sent to your email.<br><b>Didn\'t receive any mail?</b> Check your spam folder and adjust spam filters accordingly to correctly receive mails from this site.',
     'host.date.title' => '',
     'host.description_private.placeholder' => '',
     'host.description_public.placeholder' => '',
