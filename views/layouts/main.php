@@ -50,9 +50,9 @@ AppAsset::register($this);
                     ?>
                 </div>
                 <div class="jumbotron">
-                    <h2>TTIP Game Over: Round #2<span><?= Yii::t('app', 'Hosting &amp; Accommodation'); ?></span></h2>
+                    <h2>TTIP Game Over: Round #2<span><?= Yii::t('app', 'layout.subtitle'); ?></span></h2>
 
-                    <p class="lead"><?= Yii::t('app', 'Here you can request or offer an accomodation for the event.') ?></p>
+                    <p class="lead"><?= Yii::t('app', 'layout.description') ?></p>
                     <p>
                         <?= Html::a(Yii::t('app', 'Offer Hosting'), ['host/offer'], ['class' => "btn btn-lg btn-success"]); ?> 
                         <?= Html::a(Yii::t('app', 'Find Hosting'), ['host/find'], ['class' => "btn btn-lg btn-success"]); ?>
