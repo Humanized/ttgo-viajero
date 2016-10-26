@@ -80,7 +80,7 @@ class AccountController extends DefaultController
         $model = new AccountResetRequest();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('info', Yii::t('app', 'account-reset-send'));
+            Yii::$app->session->setFlash('info', Yii::t('app', 'account-reset-sent'));
             return $this->redirect('index');
         }
 
