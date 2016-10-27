@@ -189,12 +189,7 @@ class Request extends \yii\db\ActiveRecord
     public function load($data, $formName = null)
     {
         if (parent::load($data, $formName)) {
-            /*
-              if (isset($this->id)) {
 
-              }
-             * 
-             */
             $this->_loadAccommodationRequest($data);
 
             return true;
@@ -251,12 +246,15 @@ class Request extends \yii\db\ActiveRecord
 
     public function afterSave($insert, $changedAttributes)
     {
+
         foreach ($this->accommodation as $accommodation) {
             $accommodation->request_id = $this->id;
-            if (!$accommodation->save()) {
-                var_dump($accommodation->errors);
-            }
+            $accommodation->save(); 
         }
+
+        $this->supply->calculateWeight();
+
+
 
         return parent::afterSave($insert, $changedAttributes);
     }

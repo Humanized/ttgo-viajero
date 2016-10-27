@@ -63,4 +63,28 @@ class Accommodation extends \yii\db\ActiveRecord
         return false;
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAccommodationRequests()
+    {
+        return $this->hasMany(AccommodationRequest::className(), ['accommodation_id' => 'id']);
+    }
+
+    public function getReserved()
+    {
+        $count = 0;
+        foreach ($this->accommodationRequests as $request) {
+            if ($request->is_accepted) {
+                $count += $request->request_count;
+            }
+        }
+        return $count;
+    }
+
+    public function getAvailable()
+    {
+        return $this->accommodation_count - $this->reserved;
+    }
+
 }

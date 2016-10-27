@@ -25,6 +25,8 @@ class Supply extends \yii\db\ActiveRecord
         parent::init();
         $this->accommodation = [];
 
+
+        //Unclean
         $currentDate = Yii::$app->params['dateStart'];
         while ($currentDate != Yii::$app->params['dateStop'] + 1) {
             $this->accommodation[$currentDate] = new Accommodation(['accommodation_date' => date("Y-m-d", strtotime($currentDate)), 'accommodation_count' => 0]);
@@ -48,7 +50,7 @@ class Supply extends \yii\db\ActiveRecord
         return [
             [['user_id', 'has_wifi', 'has_kitchen', 'has_shower'], 'integer'],
             [['description_public', 'description_private'], 'string'],
-            [['description_public'], 'required'],
+            [['description_public', 'weight'], 'required'],
             ['accommodation', 'checkAccommodation'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -105,7 +107,7 @@ class Supply extends \yii\db\ActiveRecord
         foreach ($this->accommodation as $accommodation) {
             $accommodation->supply_id = $this->id;
             $accommodation->save();
-            \yii\helpers\VarDumper::dump($accommodation->errors);
+            // \yii\helpers\VarDumper::dump($accommodation->errors);
         }
 
         return parent::afterSave($insert, $changedAttributes);
@@ -123,10 +125,12 @@ class Supply extends \yii\db\ActiveRecord
     public function load($data, $formName = null)
     {
         if (parent::load($data, $formName)) {
+            $this->weight = 0;
             //  var_dump($data['Accommodation']);
             foreach ($data['Accommodation'] as $key => $value) {
                 $model = $this->accommodation[$key];
                 $model->accommodation_count = $value["accommodation_count"];
+                $this->weight += $value["accommodation_count"];
             }
             //   $this->accommodation = $data['Accommodation'];
             return true;
@@ -137,6 +141,11 @@ class Supply extends \yii\db\ActiveRecord
     public function getAccommodations()
     {
         return $this->hasMany(Accommodation::className(), ['supply_id' => 'id']);
+    }
+
+    public function getAccommodationRequests()
+    {
+        return $this->hasMany(AccommodationRequest::className(), ['accommodation_id' => 'id'])->via('accommodations');
     }
 
     /**
@@ -154,6 +163,22 @@ class Supply extends \yii\db\ActiveRecord
             return $model->accommodation[$date];
         }
         return null;
+    }
+
+    public function calculateWeight()
+    {
+        $total = 0;
+        $reserved = 0;
+        $totalFn = function($a)use(&$total) {
+            $total += $a->accommodation_count;
+        };
+        $reservedFn = function($ar)use(&$reserved) {
+            $reserved += $ar->is_accepted ? $ar->request_count : 0;
+        };
+        array_map($totalFn, $this->accommodations);
+        array_map($reservedFn, $this->accommodationRequests);
+        $this->weight = $total - $reserved;
+        $this->save();
     }
 
 }

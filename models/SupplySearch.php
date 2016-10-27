@@ -12,6 +12,7 @@ use app\models\Supply;
  */
 class SupplySearch extends Supply
 {
+
     public $scenario = 'search';
 
     /**
@@ -24,8 +25,6 @@ class SupplySearch extends Supply
             [['description_public', 'description_private'], 'safe'],
         ];
     }
-    
-    
 
     /**
      * @inheritdoc
@@ -62,7 +61,9 @@ class SupplySearch extends Supply
             // $query->where('0=1');
             return $dataProvider;
         }
-        echo $this->user_id;
+
+        $query->andWhere(['<>', 'weight', '0']);
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -71,6 +72,8 @@ class SupplySearch extends Supply
             'has_kitchen' => $this->has_kitchen,
             'has_shower' => $this->has_shower,
         ]);
+        
+        $query->orderBy('weight');
 
         $query->andFilterWhere(['like', 'description_public', $this->description_public])
                 ->andFilterWhere(['like', 'description_private', $this->description_private]);
