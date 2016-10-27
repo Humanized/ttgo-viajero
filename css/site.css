@@ -109,3 +109,8 @@ h2 span{
 .glyphicons-remove{
     color:red;   
 }
+
+button .logout{
+    display:inline;
+
+}

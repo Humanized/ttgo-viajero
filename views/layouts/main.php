@@ -5,6 +5,7 @@
 use yii\bootstrap\Html;
 use app\assets\AppAsset;
 use app\components\Alert;
+use yii\bootstrap\ButtonDropdown;
 
 AppAsset::register($this);
 ?>
@@ -38,13 +39,12 @@ AppAsset::register($this);
 
         <div class="wrap">
             <div class="container">
-                <div class="pull-right">
-
+                <div class="row pull-right">
                     <?=
                     Yii::$app->user->isGuest ? Html::a('<i style="font-weight:bold;" class="glyphicon glyphicon-log-in"></i>', ['account/index'], ['class' => 'btn btn-info']) :
                             Html::a('<i style="font-weight:bold;" class="glyphicon glyphicon-cog"></i>', ['account/settings'], ['class' => 'btn btn-warning']) . Html::beginForm(['/site/logout'], 'post')
-                            . Html::submitButton(
-                                    '<i style="font-weight:bold;" class="glyphicon glyphicon-log-out"></i>', ['class' => 'pull-right btn btn-danger logout']
+                            . ' ' . Html::submitButton(
+                                    '<i style="font-weight:bold;" class="glyphicon glyphicon-log-out"></i>', ['class' => 'btn btn-danger logout']
                             )
                             . Html::endForm();
                     ?>
@@ -53,11 +53,22 @@ AppAsset::register($this);
                     <h2>TTIP Game Over: Round #2<span><?= Yii::t('app', 'layout.subtitle'); ?></span></h2>
 
                     <p class="lead"><?= Yii::t('app', 'layout.description') ?></p>
-                    <p>
+                    <div class="row">
                         <?= Html::a(Yii::t('app', 'Offer Hosting'), ['host/offer'], ['class' => "btn btn-lg btn-success"]); ?> 
                         <?= Html::a(Yii::t('app', 'Find Hosting'), ['host/find'], ['class' => "btn btn-lg btn-success"]); ?>
-                        <?= Yii::$app->user->isGuest ? '' : Html::a('Requests', ['request/index'], ['class' => "btn btn-lg btn-info"]); ?>
-                    </p>
+                        <?=
+                        Yii::$app->user->isGuest ? '' :
+                                ButtonDropdown::widget([
+                                    'label' => 'Requests',
+                                    'options' => ['class' => "inline btn btn-lg btn-warning"],
+                                    'dropdown' => [
+                                        'items' => [
+                                            ['label' => 'Incoming Requests', 'url' => ['/request/in']],
+                                            ['label' => 'Outgoing Requests', 'url' => ['/request/out']],
+                        ]]]);
+                        ?>
+
+                    </div>
                 </div>
                 <div class ="row">
                     <?= Alert::widget() ?>
