@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\RequestConfirmationMail;
 
 /**
  * This is the model class for table "request".
@@ -249,11 +250,13 @@ class Request extends \yii\db\ActiveRecord
 
         foreach ($this->accommodation as $accommodation) {
             $accommodation->request_id = $this->id;
-            $accommodation->save(); 
+            $accommodation->save();
         }
 
         $this->supply->calculateWeight();
 
+        $mail = new RequestConfirmationMail(['request' => $this, 'mode' => $insert ? RequestConfirmationMail::INCOMING : RequestConfirmationMail::OUTGOING]);
+        $mail->send();
 
 
         return parent::afterSave($insert, $changedAttributes);

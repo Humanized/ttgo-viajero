@@ -20,8 +20,14 @@
 return [
     'confirmation_subject' => 'Account Confirmation',
     'confirmation_body' => 'Follow the link below to complete account registration',
+    'request_in_subject' => 'You have received an incoming request. You can respond to it, by following the link below',
+    'request_in_body' => 'You have received an incoming request. You can respond to it, by following the link below',
     'reset_subject' => 'Password Reset',
     'reset_body' => 'Follow the link below to reset your account password',
     'salutation' => 'Hi there',
     'signature' => 'See you soon - The TTIP Game Over Team',
+    'request_in_subject{username}' => '{username} has send you an incoming request.',
+    'request_in_body' => 'You have received an incoming request. You can respond to it, by following the link below',
+    'request_out_subject{username}{status}' => '{username} has {status} to your request.',
+    'request_out_body' => 'You have received a reply to your request.',
 ];
